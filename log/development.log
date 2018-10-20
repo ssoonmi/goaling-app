@@ -28240,3 +28240,106 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 150ms (Views: 132.8ms | ActiveRecord: 9.8ms)
 
 
+Started GET "/users/3" for 127.0.0.1 at 2018-10-20 17:12:00 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (19.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "hhcZ-HUCVFCA4fm2YzZPFA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mUser Load (16.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mComment Load (2.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 3], ["commentable_type", "User"]]
+  ↳ app/views/users/show.html.erb:18
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "hhcZ-HUCVFCA4fm2YzZPFA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "hhcZ-HUCVFCA4fm2YzZPFA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "hhcZ-HUCVFCA4fm2YzZPFA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "hhcZ-HUCVFCA4fm2YzZPFA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered collection of comments/_comment.html.erb [4 times] (38.8ms)
+  Rendered comments/_comment_form.html.erb (5.4ms)
+  Rendered comments/_new.html.erb (12.4ms)
+  [1m[36mGoal Load (1.0ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."user_id" = $1 AND "goals"."complete" = $2[0m  [["user_id", 3], ["complete", false]]
+  ↳ app/views/users/show.html.erb:27
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "hhcZ-HUCVFCA4fm2YzZPFA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "hhcZ-HUCVFCA4fm2YzZPFA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 4], ["commentable_type", "Goal"]]
+  ↳ app/views/goals/_goal.html.erb:33
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "hhcZ-HUCVFCA4fm2YzZPFA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "hhcZ-HUCVFCA4fm2YzZPFA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "hhcZ-HUCVFCA4fm2YzZPFA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "hhcZ-HUCVFCA4fm2YzZPFA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered collection of comments/_comment.html.erb [4 times] (37.7ms)
+  Rendered comments/_comment_form.html.erb (1.2ms)
+  Rendered comments/_new.html.erb (11.1ms)
+  Rendered collection of goals/_goal.html.erb [1 times] (76.9ms)
+  [1m[36mGoal Exists (2.5ms)[0m  [1m[34mSELECT  1 AS one FROM "goals" WHERE "goals"."user_id" = $1 AND "goals"."complete" = $2 LIMIT $3[0m  [["user_id", 3], ["complete", true], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:34
+  [1m[36mGoal Load (5.9ms)[0m  [1m[34mSELECT "goals".* FROM "goals" WHERE "goals"."user_id" = $1 AND "goals"."complete" = $2[0m  [["user_id", 3], ["complete", true]]
+  ↳ app/views/users/show.html.erb:36
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "hhcZ-HUCVFCA4fm2YzZPFA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "hhcZ-HUCVFCA4fm2YzZPFA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 6], ["commentable_type", "Goal"]]
+  ↳ app/views/goals/_goal.html.erb:33
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered comments/_comment_form.html.erb (0.4ms)
+  Rendered comments/_new.html.erb (4.1ms)
+  Rendered collection of goals/_goal.html.erb [1 times] (19.1ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "hhcZ-HUCVFCA4fm2YzZPFA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "hhcZ-HUCVFCA4fm2YzZPFA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered goals/_goal_form.html.erb (6.7ms)
+  Rendered goals/_new.html.erb (15.2ms)
+  Rendered users/show.html.erb within layouts/application (323.8ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "hhcZ-HUCVFCA4fm2YzZPFA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "hhcZ-HUCVFCA4fm2YzZPFA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 522ms (Views: 461.9ms | ActiveRecord: 50.0ms)
+
+
+Started GET "/users/3/comments/7/edit" for 127.0.0.1 at 2018-10-20 17:12:06 -0400
+Processing by CommentsController#edit as HTML
+  Parameters: {"user_id"=>"3", "id"=>"7"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "hhcZ-HUCVFCA4fm2YzZPFA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:23
+  Rendering comments/edit.html.erb within layouts/application
+  Rendered comments/_comment_form.html.erb (4.3ms)
+  Rendered comments/edit.html.erb within layouts/application (18.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "hhcZ-HUCVFCA4fm2YzZPFA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "hhcZ-HUCVFCA4fm2YzZPFA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 194ms (Views: 178.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/3/comments/7/edit" for 127.0.0.1 at 2018-10-20 17:13:28 -0400
+Processing by CommentsController#edit as HTML
+  Parameters: {"user_id"=>"3", "id"=>"7"}
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "hhcZ-HUCVFCA4fm2YzZPFA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:23
+  Rendering comments/edit.html.erb within layouts/application
+  Rendered comments/_comment_form.html.erb (2.8ms)
+  Rendered comments/edit.html.erb within layouts/application (24.5ms)
+  [1m[36mCACHE User Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "hhcZ-HUCVFCA4fm2YzZPFA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "hhcZ-HUCVFCA4fm2YzZPFA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 252ms (Views: 218.3ms | ActiveRecord: 6.8ms)
+
+
