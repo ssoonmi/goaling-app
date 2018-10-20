@@ -13,7 +13,7 @@
   <body>
     <header>
       <nav>
-        <h1>GOALS APP</h1>
+        <h1><a href="<%= users_url %>">GOALS APP</a></h1>
         <div class='sign-log-in-buttons'>
           <% if current_user %>
             <a class='user-buttons' href="<%= users_url %>">USERS</a>
@@ -44,6 +44,8 @@
     </main>
     <footer>
       Made by: Soon-Mi Sugihara
+      <br>
+      Email: ssoonmi@gmail.com
     </footer>
   </body>
 </html>

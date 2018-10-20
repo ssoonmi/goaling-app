@@ -5,10 +5,10 @@
   <input type="hidden" name="_method" value="<%= method %>">
 
   <label for="title">Title:</label>
-  <input id='title' type="text" name="goal[title]" size='38.5' value="<%= goal.title %>">
+  <input id='title' type="text" name="goal[title]" size='37' value="<%= goal.title %>">
 
   <br/>
-  <textarea id='description' name="goal[description]" rows="8" cols="49" placeholder="Description"><%= goal.description %></textarea>
+  <textarea id='description' name="goal[description]" rows="8" cols="46" placeholder="Description"><%= goal.description %></textarea>
   <br/>
   <label for="public">Make public?</label>
   <input id='public' type="checkbox" name="goal[public]" <%= goal.public ? 'checked' : '' %> >

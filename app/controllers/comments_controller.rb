@@ -33,7 +33,7 @@ class CommentsController < ApplicationController
     if !@comment
       redirect_to users_url
     end
-    url = commentable_url(@comment)
+    url, user_id = commentable_url(@comment)
     if @comment && @comment.author_id == current_user.id && @comment.update(comment_params)
       redirect_to url
     elsif @comment
@@ -47,11 +47,13 @@ class CommentsController < ApplicationController
     if !@comment
       redirect_to users_url
     end
-    url = commentable_url(@comment)
-    if @comment.author_id == current_user.id
+    url, user_id = commentable_url(@comment)
+    if @comment.author_id == current_user.id || current_user.id == user_id
       @comment.destroy
+      redirect_to url
+    else
+      redirect_to url
     end
-    redirect_to url
   end
 
 
@@ -61,10 +63,13 @@ class CommentsController < ApplicationController
     url = ''
     if comment.commentable_type == 'User'
       url = user_url(id: comment.commentable_id)
+      user_id = comment.commentable_id
     else
       goal = Goal.find(comment.commentable_id)
-      url = user_goal_url(user_id: goal.user_id, id: goal.id)
+      url = user_url(id: goal.user_id)
+      user_id = goal.user_id
     end
+    [url, user_id]
   end
 
   def comment_params

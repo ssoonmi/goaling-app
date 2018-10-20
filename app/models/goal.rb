@@ -8,6 +8,8 @@
 #  title       :string           not null
 #  public      :boolean          default(TRUE), not null
 #  complete    :boolean          default(FALSE)
+#  created_at  :datetime
+#  updated_at  :datetime
 #
 
 class Goal < ApplicationRecord

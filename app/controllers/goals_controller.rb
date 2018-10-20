@@ -16,7 +16,7 @@ class GoalsController <ApplicationController
   def edit
     @goal = Goal.find_by(id: params[:id])
     if @goal && ensure_current_user(@goal.user_id)
-      render :edit
+      render 'users/show'
     else
       redirect_to user_url(params[:user_id])
     end
@@ -29,8 +29,11 @@ class GoalsController <ApplicationController
       @goal.update(complete: false) if @goal.complete && not_complete?
       # @goal.update(public: public?)
       redirect_to user_url(@goal.user_id)
-    else
+    elsif @goal
+      flash[:errors] = @goal.errors.full_messages
       redirect_to user_url(@goal.user_id)
+    else
+      redirect_to users_url
     end
   end
 
@@ -38,14 +41,18 @@ class GoalsController <ApplicationController
     @goal = Goal.find_by(id: params[:id])
     if @goal && @goal.destroy && ensure_current_user(@goal.user_id)
       redirect_to user_url(@goal.user_id)
-    else
+    elsif @goal
+      flash[:errors] = @goal.errors.full_messages
       redirect_to user_url(@goal.user_id)
+    else
+      redirect_to_users_url
     end
   end
 
   def show
     @goal = Goal.find(params[:id])
-    render :show
+    redirect_to user_url(@goal.user_id)
+    # render :show
   end
 
   def edit

@@ -83,8 +83,10 @@ main {
   max-width: 900px;
 }
 
-h1 {
+h1 a {
+	text-decoration: none;
   font-size: 25px;
+	color: white;
 }
 
 h2 {
@@ -158,6 +160,20 @@ h3 {
   align-items: flex-end;
 }
 
+.comment-author-name {
+	float: left;
+	color: #737373;
+}
+
+.comment-footer {
+	overflow: hidden;
+	margin-top: 10px;
+}
+
+.comment {
+	text-align: left;
+}
+
 .goal-section {
   display: flex;
   flex-direction: column;
@@ -188,6 +204,8 @@ h3 {
 
 .goal-info h6 {
   margin-top: 8px;
+  margin-bottom: 8px;
+  font-size: 18px;
 }
 
 .goal-section ul {
@@ -265,6 +283,10 @@ h3 {
   cursor: pointer;
 }
 
+.goal-buttons span {
+	font-size: 11px;
+}
+
 .goal-complete-button {
   font-size: 25px;
 }
@@ -295,7 +317,7 @@ h3 {
 
 .goal-form {
   text-align: left;
-  width: 400px;
+  width: 395px;
 }
 
 .new-goal-section {
@@ -353,6 +375,12 @@ textarea {
   border: 1px solid #cecece;
 }
 
+input[type=text], input[type=password], input[type=number]{
+	padding-left: 3px;
+	padding-top: 3px;
+	padding-bottom: 1px;
+}
+
 .button {
   margin-top: 8px;
   font-size: 12px;
@@ -372,8 +400,8 @@ textarea {
 hr {
   border: 0;
   width: 80%;
-  color: #8cafff;
-  background-color: #8cafff;
+  color: #a3d3ef;
+  background-color: #a3d3ef;
   height: 2px;
   margin-top: 15px;
   margin-bottom: 15px;

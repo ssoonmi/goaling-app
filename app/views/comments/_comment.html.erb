@@ -1,17 +1,24 @@
 <% goal_comment = (comment.commentable_type == 'Goal') %>
-<% edit_url= @goal ? edit_goal_comment_url(goal_id: comment.commentable_id, id: comment.id) : edit_user_comment_url(user_id: comment.commentable_id, id: comment.id) %>
-<% destroy_url = @goal ? goal_comment_url(goal_id: comment.commentable_id, id: comment.id) : user_comment_url(user_id: comment.commentable_id, id: comment.id) %>
+<% edit_url= @current_goal ? edit_goal_comment_url(goal_id: comment.commentable_id, id: comment.id) : edit_user_comment_url(user_id: comment.commentable_id, id: comment.id) %>
+<% destroy_url = @current_goal ? goal_comment_url(goal_id: comment.commentable_id, id: comment.id) : user_comment_url(user_id: comment.commentable_id, id: comment.id) %>
+<% user_id = @current_goal ? @current_goal.user_id : comment.commentable_id %>
 
-<li>
-  <%= comment.body %>
-  <% if current_user.id == comment.author_id %>
+<li class='comment'>
+  <span><%= comment.body %></span>
+  <div class="comment-footer">
+    <div class="comment-author-name"><%= comment.author.username %></div>
     <div class="comment-buttons">
-      <a href="<%= edit_url %>">edit</a>
-      <form class="" action="<%= destroy_url %>" method="post">
-        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-        <input type="hidden" name="_method" value="delete">
-        <input type="submit" name="" value="delete">
-      </form>
+      <% if current_user.id == comment.author_id %>
+        <a href="<%= edit_url %>">edit</a>
+      <% end %>
+      <% if current_user.id == comment.author_id || current_user.id == user_id %>
+        <form class="" action="<%= destroy_url %>" method="post">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+          <input type="hidden" name="_method" value="delete">
+          <input type="submit" name="" value="delete">
+        </form>
+      <% end %>
     </div>
-  <% end %>
+  </div>
+
 </li>
