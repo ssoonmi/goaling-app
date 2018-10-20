@@ -151,6 +151,7 @@ h3 {
 .comment-form {
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
 }
 
 .goal-section {
@@ -187,6 +188,10 @@ h3 {
 
 .goal-section ul {
   list-style: none;
+}
+
+.goal-section h3 {
+  margin-bottom: 10px;
 }
 
 .goal-comment-section {
@@ -282,4 +287,95 @@ h3 {
   line-height: 150px;
   margin-left: 20px;
   margin-right: 20px;
+}
+
+.goal-form {
+  text-align: left;
+  width: 400px;
+}
+
+.new-goal-section {
+  margin-top: 20px;
+}
+
+.new-goal-section h4{
+  margin-bottom: 7px;
+  font-size: 20px;
+}
+
+.new-goal-section textarea {
+  margin-top: 10px;
+}
+
+.sign-log-in-form {
+  background-color: #9a87d6;
+  color: white;
+  padding: 10px;
+  padding-bottom: 15px;
+}
+
+.sign-log-in-form table{
+  border-collapse: separate;
+  border-spacing: 15px 10px;
+}
+
+.sign-log-in-button {
+  font-size: 16px;
+  padding: 0;
+  background-color: white;
+  color: black;
+  border: none;
+  width: 80px;
+  height: 25px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  line-height: 20px;
+  cursor: pointer;
+  box-shadow: 0px 5px #6c4b7d;
+}
+
+.sign-log-in-button:hover {
+  background-color: #ece2ff;
+}
+
+.sign-log-in-button:active {
+  transform: translateY(5px);
+}
+
+textarea {
+  padding: 3px;
+  font-size: 14px;
+}
+
+.button {
+  margin-top: 8px;
+  font-size: 12px;
+  padding: 0;
+  background-color: white;
+  color: black;
+  border: none;
+  width: 70px;
+  height: 20px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+hr {
+  border: 0;
+  width: 80%;
+  color: #8cafff;
+  background-color: #8cafff;
+  height: 2px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 70px;
+  margin-bottom: 20px;
 }

@@ -4,14 +4,13 @@
   <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token %>">
   <input type="hidden" name="_method" value="<%= method %>">
 
-  <label for="title">Title</label>
-  <input id='title' type="text" name="goal[title]" value="<%= goal.title %>">
+  <label for="title">Title:</label>
+  <input id='title' type="text" name="goal[title]" size='38.5' value="<%= goal.title %>">
 
-  <label for="description">Description</label>
-  <textarea id='description' name="goal[description]" rows="8" cols="44"><%= goal.description %></textarea>
-
+  <br/>
+  <textarea id='description' name="goal[description]" rows="8" cols="49" placeholder="Description"><%= goal.description %></textarea>
+  <br/>
   <label for="public">Make public?</label>
   <input id='public' type="checkbox" name="goal[public]" <%= goal.public ? 'checked' : '' %> >
-
-  <input class="button" type="submit" value="SUBMIT">
+  <input style="float: right; margin-top: 0;" class="button" type="submit" value="SUBMIT">
 </form>

@@ -26,6 +26,9 @@
     <ul>
       <%= render @user.goals.where(complete: false) %>
     </ul>
+
+    <hr>
+
     <h3>Completed Goals</h3>
     <% complete_goals = @user.goals.where(complete: true) %>
     <% if !complete_goals.empty? %>

@@ -30,19 +30,20 @@
       </nav>
     </header>
 
-
-    <div class="errors">
-      <% if flash[:errors] %>
-        <ul>
-          <% flash[:errors].each do |error| %>
-            <li><%= error %></li>
-          <% end %>
-        </ul>
-      <% end %>
-    </div>
-
     <main>
+      <div class="errors">
+        <% if flash[:errors] %>
+          <ul>
+            <% flash[:errors].each do |error| %>
+              <li><%= error %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
       <%= yield %>
     </main>
+    <footer>
+      Made by: Soon-Mi Sugihara
+    </footer>
   </body>
 </html>

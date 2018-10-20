@@ -1,3 +1,6 @@
-<h4>Make a Goal</h4>
+<div class='new-goal-section'>
 
-<%= render 'goals/goal_form', user: current_user, goal: Goal.new, method: 'post' %>
+  <h4>Make A New Goal</h4>
+
+  <%= render 'goals/goal_form', user: current_user, goal: Goal.new, method: 'post' %>
+</div>

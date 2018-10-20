@@ -2,12 +2,16 @@
 
 <form class="sign-log-in-form" action="<%= session_url %>" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-
-  <label for="username">Username</label>
-  <input id="username" type="text" name="user[username]" value="">
-
-  <label for="password">Password</label>
-  <input id="password" type="password" name="user[password]" value="">
+  <table>
+    <tr>
+      <td><label for="username">Username</label></td>
+      <td><input id="username" type="text" name="user[username]" value=""></td>
+    </tr>
+    <tr>
+      <td><label for="password">Password</label></td>
+      <td><input id="password" type="password" name="user[password]" value=""></td>
+    </tr>
+  </table>
 
   <input class="sign-log-in-button" type="submit" value="LOG IN">
 </form>

@@ -3,25 +3,33 @@
 <form class="sign-log-in-form" action="<%= post ? users_url : edit_user_url(user.id) %>" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <input type="hidden" name="_method" value="<%= method %>">
+  <table>
+    <% if post %>
+      <tr class="sign-log-in-form-inputs">
+        <td><label for="username">Username</label></td>
+        <td><input id="username" type="text" name="user[username]" value=""></td>
+      </tr>
 
-  <% if post %>
-    <label for="username">Username</label>
-    <input id="username" type="text" name="user[username]" value="">
-
-    <label for="password">Password</label>
-    <input id="password" type="password" name="user[password]" value="">
-  <% end %>
-
-  <label for="location">Location</label>
-  <input id="location" type="text" name="user[location]" value="<%= user.location %>">
-
-  <label for="house">House</label>
-  <select id='house' name="user[house]">
-    <option disabled selected>-- SELECT A HOUSE --</option>
-    <% User.houses.each do |house| %>
-      <option value="<%= house %>" <%= user.house == house ? 'selected' : '' %> ><%= house %></option>
+      <tr class="sign-log-in-form-inputs">
+        <td><label for="password">Password</label></td>
+        <td><input id="password" type="password" name="user[password]" value=""></td>
+      </tr>
     <% end %>
-  </select>
 
-  <input class="sign-log-in-button" type="submit" value="<%= post ? 'SIGN UP' : 'SUBMIT' %> ">
+    <tr class="sign-log-in-form-inputs">
+      <td><label for="location">Location</label></td>
+      <td><input id="location" type="text" name="user[location]" value="<%= user.location %>"></td>
+    </tr>
+
+    <tr class="sign-log-in-form-inputs">
+      <td><label for="house">House</label></td>
+      <td><select id='house' name="user[house]">
+        <option disabled selected>-- SELECT A HOUSE --</option>
+        <% User.houses.each do |house| %>
+          <option value="<%= house %>" <%= user.house == house ? 'selected' : '' %> ><%= house %></option>
+        <% end %>
+      </select></td>
+    </tr>
+  </table>
+  <input class="sign-log-in-button" type="submit" value="<%= post ? 'SIGN UP' : 'SUBMIT' %>"></td>
 </form>
