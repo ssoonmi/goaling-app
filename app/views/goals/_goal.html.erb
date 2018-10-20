@@ -1,0 +1,39 @@
+<% if goal.public || current_user.id == goal.user_id %>
+  <li class='goal-info'>
+    <div class="goal-title">
+      <% if current_user.id == goal.user_id  %>
+        <a class='goal-complete-button' href="<%= user_goal_complete_url(user_id: goal.user_id, goal_id: goal.id) %>"><%= goal.complete ? '☑' : '☐' %></a>
+      <% end %>
+      <a href="<%= user_goal_url(id: goal.id, user_id: goal.user_id) %>">
+        <h5>✪ <%= goal.title %> ✪</h5>
+      </a>
+    </div>
+    <%= goal.description %>
+
+    <% if current_user.id == goal.user_id %>
+      <div class="goal-buttons">
+        <% if @goal && @goal.id == goal.id %>
+          <div class="edit-goal-form">
+            <%= render 'goals/edit' %>
+          </div>
+        <% else %>
+          <a href="<%= edit_user_goal_url(user_id: goal.user_id, id: goal.id) %>">edit</a>
+        <% end %>
+
+        <form class="destroy-goal-form" action="<%= user_goal_url(user_id: goal.user_id, id: goal.id) %>" method="post">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+          <input type="hidden" name="_method" value="delete">
+          <input type="submit" name="" value="delete">
+        </form>
+      </div>
+    <% end %>
+
+    <h6>Comments</h6>
+    <ul class='goal-comment-section'>
+      <%= render goal.comments %>
+    </ul>
+
+    <% @goal = goal %>
+    <%= render 'comments/new' %>
+  </li>
+<% end %>

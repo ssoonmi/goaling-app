@@ -1,0 +1,17 @@
+<% post = (method == 'post') %>
+
+<form class="goal-form" action="<%= post ? user_goals_url(user.id) : user_goal_url(user_id: user.id, goal_id: goal.id) %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token %>">
+  <input type="hidden" name="_method" value="<%= method %>">
+
+  <label for="title">Title</label>
+  <input id='title' type="text" name="goal[title]" value="<%= goal.title %>">
+
+  <label for="description">Description</label>
+  <textarea id='description' name="goal[description]" rows="8" cols="44"><%= goal.description %></textarea>
+
+  <label for="public">Make public?</label>
+  <input id='public' type="checkbox" name="goal[public]" <%= goal.public ? 'checked' : '' %> >
+
+  <input class="button" type="submit" value="SUBMIT">
+</form>

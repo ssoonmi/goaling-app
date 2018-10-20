@@ -1,0 +1,42 @@
+<div class="profile-page">
+  <h2><%= @user.username %>'s Profile</h2>
+
+  <table class="profile-info">
+    <tr>
+      <td class='profile-info-type'>HOUSE:</td>
+      <td class='profile-info-text'><%= @user.house %></td>
+    </tr>
+    <tr>
+      <td class='profile-info-type'>LOCATION:</td>
+      <td class='profile-info-text'><%= @user.location %></td>
+    </tr>
+  </table>
+
+  <div class="profile-comment-section">
+    <h3>Comments</h3>
+    <ul>
+      <%= render @user.comments %>
+    </ul>
+
+    <%= render 'comments/new' %>
+  </div>
+
+  <div class="goal-section">
+    <h3>Goals</h3>
+    <ul>
+      <%= render @user.goals.where(complete: false) %>
+    </ul>
+    <h3>Completed Goals</h3>
+    <% complete_goals = @user.goals.where(complete: true) %>
+    <% if !complete_goals.empty? %>
+      <ul>
+          <%= render complete_goals %>
+      </ul>
+    <% else %>
+      none
+    <% end %>
+    <% if current_user.id == @user.id %>
+      <%= render 'goals/new' %>
+    <% end %>
+  </div>
+</div>

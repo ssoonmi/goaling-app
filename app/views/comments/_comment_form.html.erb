@@ -1,0 +1,14 @@
+<% post = (method == 'post') %>
+
+<form class="comment-form" action="<%= url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="<%= method %>">
+  <% if user_id %>
+    <input type="hidden" name="user_id" value="<%= user_id %>">
+  <% end %>
+
+  <!-- <label for="comment">Comment</label> -->
+  <textarea id='comment' name="comment[body]" rows="4" cols="44"><%= comment.body %></textarea>
+
+  <input class="button" type="submit" value="SUBMIT">
+</form>

@@ -1,0 +1,17 @@
+<% goal_comment = (comment.commentable_type == 'Goal') %>
+<% edit_url= @goal ? edit_goal_comment_url(goal_id: comment.commentable_id, id: comment.id) : edit_user_comment_url(user_id: comment.commentable_id, id: comment.id) %>
+<% destroy_url = @goal ? goal_comment_url(goal_id: comment.commentable_id, id: comment.id) : user_comment_url(user_id: comment.commentable_id, id: comment.id) %>
+
+<li>
+  <%= comment.body %>
+  <% if current_user.id == comment.author_id %>
+    <div class="comment-buttons">
+      <a href="<%= edit_url %>">edit</a>
+      <form class="" action="<%= destroy_url %>" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" name="" value="delete">
+      </form>
+    </div>
+  <% end %>
+</li>

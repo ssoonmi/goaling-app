@@ -1,0 +1,6 @@
+<h4>Edit Comment</h4>
+
+<% url = @commentable_type == 'Goal' ? goal_comment_url(id: @comment.id, goal_id: @comment.commentable_id) : user_comment_url(id: @comment.id, user_id: @comment.commentable_id) %>
+<% user_id = @commentable_type == 'Goal' ? @commentable_id : false%>
+<% @comment ||= Comment.new %>
+<%= render 'comments/comment_form', url: url, comment: @comment, method: 'patch', user_id: user_id %>

@@ -1,0 +1,13 @@
+<h2>LOG IN</h2>
+
+<form class="sign-log-in-form" action="<%= session_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label for="username">Username</label>
+  <input id="username" type="text" name="user[username]" value="">
+
+  <label for="password">Password</label>
+  <input id="password" type="password" name="user[password]" value="">
+
+  <input class="sign-log-in-button" type="submit" value="LOG IN">
+</form>

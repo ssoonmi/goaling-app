@@ -1,0 +1,6 @@
+<h4>Add Comment</h4>
+
+<% url = @goal ? goal_comments_url(goal_id: @goal.id) : user_comments_url(user_id: @user.id) %>
+<% user_id = @goal ? @goal.user_id : false%>
+<% @comment ||= Comment.new %>
+<%= render 'comments/comment_form', url: url, comment: @comment, method: 'post', user_id: user_id %>
