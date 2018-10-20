@@ -94,10 +94,15 @@ h2 {
   margin-bottom: 10px;
 }
 
-.profile-info{
-  margin-bottom: 20px;
+.profile-info {
+	margin-bottom: 20px;
+}
+
+.profile-info table{
   border-collapse: separate;
   border-spacing: 15px 0;
+	width: auto;
+	margin: 0 auto;
 }
 
 .profile-info-type {
@@ -345,6 +350,7 @@ h3 {
   border-collapse: separate;
   border-spacing: 15px 10px;
 }
+
 
 .sign-log-in-button {
   font-size: 16px;

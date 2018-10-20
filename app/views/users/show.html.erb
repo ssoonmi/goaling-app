@@ -1,16 +1,18 @@
 <div class="profile-page">
   <h2>✪ <%= @user.username %>'s Profile ✪</h2>
 
-  <table class="profile-info">
-    <tr>
-      <td class='profile-info-type'>HOUSE:</td>
-      <td class='profile-info-text'><%= @user.house %></td>
-    </tr>
-    <tr>
-      <td class='profile-info-type'>LOCATION:</td>
-      <td class='profile-info-text'><%= @user.location %></td>
-    </tr>
-  </table>
+  <div class="profile-info">
+    <table>
+      <tr>
+        <td class='profile-info-type'>HOUSE:</td>
+        <td class='profile-info-text'><%= @user.house %></td>
+      </tr>
+      <tr>
+        <td class='profile-info-type'>LOCATION:</td>
+        <td class='profile-info-text'><%= @user.location %></td>
+      </tr>
+    </table>
+  </div>
 
   <div class="profile-comment-section">
     <h3>Comments</h3>
