@@ -142,6 +142,10 @@ h3 {
   width: 400px;
 }
 
+.profile-comment-section h3 {
+  margin-bottom: 10px;
+}
+
 
 .profile-comment-section h4{
   margin-top: 20px;
