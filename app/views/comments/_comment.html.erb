@@ -5,6 +5,7 @@
 
 <li class='comment'>
   <span><%= comment.body %></span>
+  <div class="comment-date"><%= comment.created_at.httpdate %></div>
   <div class="comment-footer">
     <div class="comment-author-name"><%= comment.author.username %></div>
     <div class="comment-buttons">

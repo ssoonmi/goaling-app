@@ -16,6 +16,8 @@
       <div class="goal-description"><%= goal.description %></div>
     <% end %>
 
+    <div class="goal-date"><%= goal.created_at.httpdate %></div>
+
     <% if current_user.id == goal.user_id %>
       <div class="goal-buttons">
         <span class="goal-private">
