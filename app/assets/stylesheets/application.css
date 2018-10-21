@@ -68,6 +68,10 @@ nav {
   cursor: pointer;
 }
 
+.user-buttons:hover {
+	background-color: #eaf0ff;
+}
+
 main {
   margin: 0 auto;
   margin-top: 70px;
@@ -92,7 +96,18 @@ h1 a {
 
 h2 {
   font-size: 25px;
-  margin-bottom: 10px;
+	margin-bottom: 5px;
+}
+
+.all-users-link {
+	text-decoration: none;
+	margin-bottom: 10px;
+	color: grey;
+	font-size: 14px;
+}
+
+.all-users-link:hover {
+	color: black;
 }
 
 .profile-info {
@@ -262,6 +277,10 @@ h3 {
   line-height: 20px;
   cursor: pointer;
 }
+.comment-buttons a:hover, .comment-buttons input[type=submit]:hover {
+	background-color: #eaf0ff;
+}
+
 .goal-buttons {
   width: 100%;
   display: flex;
@@ -287,6 +306,10 @@ h3 {
   border-radius: 5px;
   line-height: 20px;
   cursor: pointer;
+}
+
+.goal-buttons a:hover, .goal-buttons input[type=submit]:hover {
+	background-color: #eaf0ff;
 }
 
 .goal-buttons span {
@@ -341,7 +364,7 @@ h3 {
 }
 
 .sign-log-in-form {
-  background-color: #9a87d6;
+  background-color: #536db7;
   color: white;
   padding: 10px;
   padding-bottom: 15px;
@@ -366,15 +389,16 @@ h3 {
   border-radius: 5px;
   line-height: 20px;
   cursor: pointer;
-  box-shadow: 0px 5px #6c4b7d;
+  box-shadow: 0px 5px #113486;
 }
 
 .sign-log-in-button:hover {
-  background-color: #ece2ff;
+  background-color: #eaf0ff;
 }
 
 .sign-log-in-button:active {
   transform: translateY(5px);
+	box-shadow: none;
 }
 
 textarea {
@@ -403,6 +427,10 @@ input[type=text], input[type=password], input[type=number]{
   border-radius: 5px;
   line-height: 20px;
   cursor: pointer;
+}
+
+.button:hover {
+	background-color: #eaf0ff;
 }
 
 hr {
