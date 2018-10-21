@@ -10,10 +10,10 @@
           <a class='goal-complete-button' href="<%= user_goal_complete_url(user_id: goal.user_id, goal_id: goal.id) %>"><%= goal.complete ? '☑' : '☐' %></a>
         <% end %>
         <a href="<%= user_goal_url(id: goal.id, user_id: goal.user_id) %>">
-          <h5> <%= goal.title %></h5>
+          <h5 style="display: inline;"> <%= goal.title %></h5>
         </a>
       </div>
-      <%= goal.description %>
+      <div class="goal-description"><%= goal.description %></div>
     <% end %>
 
     <% if current_user.id == goal.user_id %>

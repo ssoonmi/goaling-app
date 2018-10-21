@@ -237,6 +237,10 @@ h3 {
   margin-bottom: 10px;
 }
 
+.goal-description {
+	color: #d9d9d9;
+}
+
 .goal-comment-section {
   display: flex;
   flex-direction: column;
