@@ -106,7 +106,7 @@ h2 {
 
 .all-users-link {
 	text-decoration: none;
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 	color: grey;
 	font-size: 14px;
 }
@@ -116,6 +116,7 @@ h2 {
 }
 
 .profile-info {
+	margin-top: 10px;
 	margin-bottom: 20px;
 }
 
@@ -134,6 +135,11 @@ h2 {
 
 .profile-info-text {
   text-align: left;
+}
+
+.house-img {
+	width: 100px;
+	height: auto;
 }
 
 h3 {

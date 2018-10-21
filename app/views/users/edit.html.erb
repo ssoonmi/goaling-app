@@ -1,5 +1,5 @@
 <div class="sign-log-in">
   <h2>EDIT PROFILE</h2>
 
-  <% render 'form', user: current_user, method: 'patch' %>
+  <%= render 'users/form', user: @user, method: 'patch' %>
 </div>

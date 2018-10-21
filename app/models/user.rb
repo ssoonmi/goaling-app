@@ -21,7 +21,12 @@ class User < ApplicationRecord
 
   attr_reader :password
 
-  HOUSES = ['Griffindor', 'Slytherin', 'Hufflepuff', 'Ravenclaw']
+  HOUSES = {
+    'Gryffindor' => 'https://vignette.wikia.nocookie.net/harrypotter/images/8/8e/0.31_Gryffindor_Crest_Transparent.png/revision/latest?cb=20161124074004',
+    'Slytherin'=> 'https://vignette.wikia.nocookie.net/harrypotter/images/d/d3/0.61_Slytherin_Crest_Transparent.png/revision/latest?cb=20161020182557',
+    'Hufflepuff' => 'https://vignette.wikia.nocookie.net/harrypotter/images/5/50/0.51_Hufflepuff_Crest_Transparent.png/revision/latest?cb=20161020182518',
+    'Ravenclaw' => 'https://vignette.wikia.nocookie.net/harrypotter/images/2/29/0.41_Ravenclaw_Crest_Transparent.png/revision/latest?cb=20161020182442&format=original'
+  }
 
   has_many :goals,
     foreign_key: :user_id,
@@ -33,7 +38,7 @@ class User < ApplicationRecord
     dependent: :destroy
 
   def self.houses
-    HOUSES
+    HOUSES.keys
   end
 
   def ensure_session_token
@@ -65,4 +70,7 @@ class User < ApplicationRecord
     self.password_digest = BCrypt::Password.create(password)
   end
 
+  def house_image_url
+    HOUSES[self.house]
+  end
 end

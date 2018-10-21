@@ -33,7 +33,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    if @user
+    if @user && @user.id == current_user.id
       render :edit
     else
       redirect_to users_url

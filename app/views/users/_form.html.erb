@@ -1,7 +1,7 @@
 <% post = (method == 'post') %>
 
 <div class="sign-log-in-form">
-  <form action="<%= post ? users_url : edit_user_url(user.id) %>" method="post">
+  <form action="<%= post ? users_url : user_url(user.id) %>" method="post">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <input type="hidden" name="_method" value="<%= method %>">
     <table>
@@ -34,10 +34,12 @@
     </table>
     <input class="sign-log-in-button" type="submit" value="<%= post ? 'SIGN UP' : 'SUBMIT' %>"></td>
   </form>
-  <form action="<%= session_url %>" method="post">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <input type="hidden" name="user[username]" value="demo">
-    <input type="hidden" name="user[password]" value="password">
-    <input style="width: 160px; margin-top: 10px;" class="sign-log-in-button" type="submit" value="LOG IN AS DEMO">
-  </form>
+  <% unless current_user %>
+    <form action="<%= session_url %>" method="post">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="hidden" name="user[username]" value="demo">
+      <input type="hidden" name="user[password]" value="password">
+      <input style="width: 160px; margin-top: 10px;" class="sign-log-in-button" type="submit" value="LOG IN AS DEMO">
+    </form>
+  <% end %>
 </div>

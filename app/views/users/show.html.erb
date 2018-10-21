@@ -1,8 +1,15 @@
 <div class="profile-page">
   <h2>✪ <%= @user.username %>'s Profile ✪</h2>
+
+  <% if current_user.id == @user.id %>
+    <a class="all-users-link" href="<%= edit_user_url(current_user.id) %>">edit profile</a>
+  <% end %>
   <a class="all-users-link" href="<%= users_url %>">return to all users</a>
 
   <div class="profile-info">
+    <% if @user.house_image_url %>
+      <img class="house-img" src="<%= @user.house_image_url %>" alt="image of house">
+    <% end %>
     <table>
       <tr>
         <td class='profile-info-type'>HOUSE:</td>
