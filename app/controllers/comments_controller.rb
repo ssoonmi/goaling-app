@@ -44,7 +44,6 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
-    debugger
     if !@comment
       redirect_to users_url
     end
