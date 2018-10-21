@@ -1,35 +1,43 @@
 <% post = (method == 'post') %>
 
-<form class="sign-log-in-form" action="<%= post ? users_url : edit_user_url(user.id) %>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="<%= method %>">
-  <table>
-    <% if post %>
+<div class="sign-log-in-form">
+  <form action="<%= post ? users_url : edit_user_url(user.id) %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="<%= method %>">
+    <table>
+      <% if post %>
+        <tr class="sign-log-in-form-inputs">
+          <td><label for="username">Username</label></td>
+          <td><input id="username" type="text" name="user[username]" value=""></td>
+        </tr>
+
+        <tr class="sign-log-in-form-inputs">
+          <td><label for="password">Password</label></td>
+          <td><input id="password" type="password" name="user[password]" value=""></td>
+        </tr>
+      <% end %>
+
       <tr class="sign-log-in-form-inputs">
-        <td><label for="username">Username</label></td>
-        <td><input id="username" type="text" name="user[username]" value=""></td>
+        <td><label for="location">Location</label></td>
+        <td><input id="location" type="text" name="user[location]" value="<%= user.location %>"></td>
       </tr>
 
       <tr class="sign-log-in-form-inputs">
-        <td><label for="password">Password</label></td>
-        <td><input id="password" type="password" name="user[password]" value=""></td>
+        <td><label for="house">House</label></td>
+        <td><select id='house' name="user[house]">
+          <option disabled selected>-- SELECT A HOUSE --</option>
+          <% User.houses.each do |house| %>
+            <option value="<%= house %>" <%= user.house == house ? 'selected' : '' %> ><%= house %></option>
+          <% end %>
+        </select></td>
       </tr>
-    <% end %>
-
-    <tr class="sign-log-in-form-inputs">
-      <td><label for="location">Location</label></td>
-      <td><input id="location" type="text" name="user[location]" value="<%= user.location %>"></td>
-    </tr>
-
-    <tr class="sign-log-in-form-inputs">
-      <td><label for="house">House</label></td>
-      <td><select id='house' name="user[house]">
-        <option disabled selected>-- SELECT A HOUSE --</option>
-        <% User.houses.each do |house| %>
-          <option value="<%= house %>" <%= user.house == house ? 'selected' : '' %> ><%= house %></option>
-        <% end %>
-      </select></td>
-    </tr>
-  </table>
-  <input class="sign-log-in-button" type="submit" value="<%= post ? 'SIGN UP' : 'SUBMIT' %>"></td>
-</form>
+    </table>
+    <input class="sign-log-in-button" type="submit" value="<%= post ? 'SIGN UP' : 'SUBMIT' %>"></td>
+  </form>
+  <form action="<%= session_url %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="user[username]" value="demo">
+    <input type="hidden" name="user[password]" value="password">
+    <input style="width: 160px; margin-top: 10px;" class="sign-log-in-button" type="submit" value="LOG IN AS DEMO">
+  </form>
+</div>

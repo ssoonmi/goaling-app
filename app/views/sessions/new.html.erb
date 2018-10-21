@@ -1,17 +1,25 @@
 <h2>LOG IN</h2>
 
-<form class="sign-log-in-form" action="<%= session_url %>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <table>
-    <tr>
-      <td><label for="username">Username</label></td>
-      <td><input id="username" type="text" name="user[username]" value=""></td>
-    </tr>
-    <tr>
-      <td><label for="password">Password</label></td>
-      <td><input id="password" type="password" name="user[password]" value=""></td>
-    </tr>
-  </table>
+<div class="sign-log-in-form">
+  <form action="<%= session_url %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <table>
+      <tr>
+        <td><label for="username">Username</label></td>
+        <td><input id="username" type="text" name="user[username]" value=""></td>
+      </tr>
+      <tr>
+        <td><label for="password">Password</label></td>
+        <td><input id="password" type="password" name="user[password]" value=""></td>
+      </tr>
+    </table>
 
-  <input class="sign-log-in-button" type="submit" value="LOG IN">
-</form>
+    <input class="sign-log-in-button" type="submit" value="LOG IN">
+  </form>
+  <form action="<%= session_url %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="user[username]" value="demo">
+    <input type="hidden" name="user[password]" value="password">
+    <input style="width: 160px; margin-top: 10px;" class="sign-log-in-button" type="submit" value="LOG IN AS DEMO">
+  </form>
+</div>
