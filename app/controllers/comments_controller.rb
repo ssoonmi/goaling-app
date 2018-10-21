@@ -43,13 +43,13 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = Comment.find(params[:id])
-    if !@comment
+    comment = Comment.find(params[:id])
+    if !comment
       redirect_to users_url
     end
-    url, user_id = commentable_url(@comment)
-    if @comment.author_id == current_user.id || current_user.id == user_id
-      @comment.destroy
+    url, user_id = commentable_url(comment)
+    if comment.author_id == current_user.id || current_user.id == user_id
+      comment.destroy
       redirect_to url
     else
       redirect_to url
@@ -62,12 +62,12 @@ class CommentsController < ApplicationController
   def commentable_url(comment)
     url = ''
     if comment.commentable_type == 'User'
-      url = user_url(id: comment.commentable_id)
       user_id = comment.commentable_id
+      url = user_url(user_id)
     else
       goal = Goal.find(comment.commentable_id)
-      url = user_url(id: goal.user_id)
       user_id = goal.user_id
+      url = user_url(user_id)
     end
     [url, user_id]
   end
