@@ -1,7 +1,7 @@
 <% goal_comment = (comment.commentable_type == 'Goal') %>
-<% edit_url= @current_goal ? edit_goal_comment_url(goal_id: comment.commentable_id, id: comment.id) : edit_user_comment_url(user_id: comment.commentable_id, id: comment.id) %>
-<% destroy_url = @current_goal ? goal_comment_url(goal_id: comment.commentable_id, id: comment.id) : user_comment_url(user_id: comment.commentable_id, id: comment.id) %>
-<% user_id = @current_goal ? @current_goal.user_id : comment.commentable_id %>
+<% edit_url= goal_comment ? edit_goal_comment_url(goal_id: comment.commentable_id, id: comment.id) : edit_user_comment_url(user_id: comment.commentable_id, id: comment.id) %>
+<% destroy_url = goal_comment ? goal_comment_url(goal_id: comment.commentable_id, id: comment.id) : user_comment_url(user_id: comment.commentable_id, id: comment.id) %>
+<% user_id = goal_comment ? @current_goal.user_id : comment.commentable_id %>
 
 <li class='comment'>
   <span><%= comment.body %></span>

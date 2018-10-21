@@ -37,6 +37,11 @@ class User < ApplicationRecord
     as: :commentable,
     dependent: :destroy
 
+  has_many :authored_comments,
+    foreign_key: :author_id,
+    class_name: :Comment,
+    dependent: :destroy
+
   def self.houses
     HOUSES.keys
   end
