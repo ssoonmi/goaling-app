@@ -37,7 +37,7 @@
     <h6>Comments</h6>
     <% @current_goal = goal %>
     <ul class='goal-comment-section'>
-      <%= render goal.comments.includes(:author) %>
+      <%= render goal.comments.order('created_at ASC').includes(:author)%>
     </ul>
 
     <%= render 'comments/new' %>

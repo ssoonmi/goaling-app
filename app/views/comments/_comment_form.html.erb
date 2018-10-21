@@ -8,7 +8,7 @@
   <% end %>
 
   <!-- <label for="comment">Comment</label> -->
-  <textarea id='comment' name="comment[body]" rows="3" cols="43"><%= comment.body %></textarea>
+  <textarea id='comment' name="comment[body]" rows="3" cols="<%= user_id ? '43' : '49' %>" placeholder="Add Comment"><%= comment.body %></textarea>
 
   <input class="button" type="submit" value="COMMENT">
 </form>

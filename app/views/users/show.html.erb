@@ -17,11 +17,11 @@
 
   <div class="profile-comment-section">
     <h3>Comments</h3>
-    <ul>
-      <%= render @user.comments.includes(:author) %>
-    </ul>
-    <hr>
     <%= render 'comments/new' %>
+    <hr>
+    <ul>
+      <%= render @user.comments.order('created_at DESC').includes(:author) %>
+    </ul>
   </div>
 
   <div class="goal-section">
