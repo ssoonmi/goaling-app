@@ -72,6 +72,10 @@ nav {
 	background-color: #eaf0ff;
 }
 
+.user-buttons:active {
+	background-color: #cccccc;
+}
+
 main {
   margin: 0 auto;
   margin-top: 70px;
@@ -285,6 +289,10 @@ h3 {
 	background-color: #eaf0ff;
 }
 
+.comment-buttons a:active, .comment-buttons input[type=submit]:active {
+	background-color: #cccccc;
+}
+
 .goal-buttons {
   width: 100%;
   display: flex;
@@ -314,6 +322,10 @@ h3 {
 
 .goal-buttons a:hover, .goal-buttons input[type=submit]:hover {
 	background-color: #eaf0ff;
+}
+
+.goal-buttons a:active, .goal-buttons input[type=submit]:active {
+	background-color: #cccccc;
 }
 
 .goal-buttons span {
@@ -424,6 +436,7 @@ h3 {
 .sign-log-in-button:active {
   transform: translateY(5px);
 	box-shadow: none;
+	background-color: #cccccc;
 }
 
 textarea {
@@ -456,6 +469,10 @@ input[type=text], input[type=password], input[type=number]{
 
 .button:hover {
 	background-color: #eaf0ff;
+}
+
+.button:active {
+	background-color: #cccccc;
 }
 
 hr {
