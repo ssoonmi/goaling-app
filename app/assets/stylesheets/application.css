@@ -46,8 +46,8 @@ nav {
 .sign-log-in-buttons {
   display: flex;
   flex-direction: row;
-  width: 180px;
-  justify-content: space-between;
+  width: 195px;
+  justify-content: flex-end;
 }
 
 .user-buttons {
@@ -64,6 +64,7 @@ nav {
   text-decoration: none;
   border-radius: 5px;
   line-height: 30px;
+	margin-left:10px;
   cursor: pointer;
 }
 

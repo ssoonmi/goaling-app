@@ -16,7 +16,7 @@
         <h1><a href="<%= users_url %>">GOALS APP</a></h1>
         <div class='sign-log-in-buttons'>
           <% if current_user %>
-            <a class='user-buttons' href="<%= users_url %>">USERS</a>
+            <a style="width:105px;" class='user-buttons' href="<%= user_url(current_user.id) %>">YOUR PROFILE</a>
             <form action="<%= session_url(current_user.id) %>" method="post">
               <input type="hidden" name="_method" value="delete">
               <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
